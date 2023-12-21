@@ -1,0 +1,267 @@
+,title,permalink,text,author,upvote_ratio,post_score,number_comments,flair,whitelist_status,date
+0,[D] Simple Questions Thread,/r/MachineLearning/comments/18kkdbb/d_simple_questions_thread/,"Please post your questions here instead of creating a new thread. Encourage others who create new posts for questions to post here instead!
+
+Thread will stay alive until next one so keep posting after the date in the title.
+
+Thanks to everyone for answering questions in the previous thread!",AutoModerator,0.7,4,22,Discussion,all_ads,1970-01-20 11:00:28.819
+1,[D] What are 2023's top innovations in ML/AI outside of LLM stuff?,/r/MachineLearning/comments/18hnh8p/d_what_are_2023s_top_innovations_in_mlai_outside/,What really caught your eye so far this year? Both high profile applications but also research innovations which may shape the field for decades to come.,prescod,0.99,368,136,Discussion,all_ads,1970-01-20 10:54:51.999
+2,"[P] the Decimator, or how to plot a lot of points",/r/MachineLearning/comments/18nq5p6/p_the_decimator_or_how_to_plot_a_lot_of_points/,"The decimator is a function that removes points in the plot while keeping all the ""value/information"" of a chart. The post features examples with times series and clustering.
+
+[https://www.taipy.io/posts/big-data-charting-strategies-in-python](https://www.taipy.io/posts/big-data-charting-strategies-in-python)",quicklyalienated76,0.88,13,0,Project,all_ads,1970-01-20 11:06:14.094
+3,[P] I built an open SotA image tagging model to do what CLIP won't,/r/MachineLearning/comments/18nb15l/p_i_built_an_open_sota_image_tagging_model_to_do/,"I'm a hobbyist ML researcher and finally, after a year of work, built a state of the art machine vision model from scratch. It's ViT-B/16 based, 448x448x3 input, 91M parameters, trained for 660M samples, with multi-label classification as the target task, on over 5000 unique tags.
+
+All the big foundation vision models today were trained on heavily filtered datasets, greatly limiting the concepts they can represent, in line with arbitrary sets of rules for what is deemed ""wholesome"" by leading tech companies.  Everything from innocuous to spicy is on the chopping block of those filters.  And because CLIP pervades the industry, from StableDiffusion to LLaVA, so does OpenAI's sensibilities.
+
+My goal was to build a vision model for tagging images, mainly for labelling images for SD finetunes, but which wasn't as heavily filtered and handicapped as CLIP/BLIP/LLaVA.  Something more inclusive, diverse, and sex positive.
+
+Starting from the wonderful work of SmilingWolf (https://github.com/SmilingWolf/SW-CV-ModelZoo) and the Danbooru2021 dataset, I iterated for a year on the model, training, and manually labeling a thousand images to help the model generalize beyond the danbooru domain.
+
+I'm releasing the first version of this model, dubbed JoyTag, today: https://github.com/fpgaminer/joytag
+
+It achieves a mean F1 score of 0.578 across all of its over 5000 tags and across both the anime/manga styled images of the original danbooru dataset, but also photographs and other mediums thanks to the auxiliary training data I provided to it.
+
+It was quite the struggle getting to this point, and I probably spent more time and money than any sane person should have.  I learned a lot about dealing with datasets as large as danbooru2021, training models at scale, and how to keep yourself awake all night so your 8xA100 rental doesn't crash and blow all your money.
+
+In my manual testing outside of even the validation set, the model has generalized well to unseen images, so I'm quite happy with the results thus far.  There's plenty more work to do expanding its dataset to improve that F1 score further, and roundout its weak points.  With inclusivity and diversity being a major goal of this project, I'm disappointed by some of its remaining limitations (as documented in the GitHub README).  But I'm already busy manually tagging more images using my model-augmented workflow.
+
+I'm happy to answer questions about the project, the training procedure, anything.  All the training parameters are documented on GitHub, but there are so many little details that were hard won over the year.  Like that damned loss multiplier.  Ugh.
+
+Github: https://github.com/fpgaminer/joytag
+Model download: https://huggingface.co/fancyfeast/joytag/tree/main
+Demo: https://huggingface.co/spaces/fancyfeast/joytag",fpgaminer,0.95,150,44,Project,all_ads,1970-01-20 11:05:22.479
+4,Meta AI Residency Interview Question [D],/r/MachineLearning/comments/18nio9k/meta_ai_residency_interview_question_d/,"Was curious about this coding question that I got in last year’s Meta AI Residency coding round (and got rejected after). The question was something on the lines of- code a convolutional neural network from scratch, using numpy and matrices. 
+
+I was super startled and confused as most of my peers got LC Med questions, and I expected something like that as well (esp cause I didn’t ever mention CNNs in my resume either).
+
+But anyway, was curious if someone had a similar experience/would know the answer?
+
+Thanks!",Immediate-Tailor-275,0.81,22,23,Discussion,all_ads,1970-01-20 11:05:49.108
+5,[D] Removed 50% of the weights from a top leaderboard LLM without negatively impacting the evals,/r/MachineLearning/comments/18nn7yg/d_removed_50_of_the_weights_from_a_top/,"I removed 50% of the weights from a top leaderboard LLM without negatively impacting the evals. 
+
+Using SparseML I was able to zero out 50% of the 
+
+SOLAR-10.7B-Instruct-v1.0 weights. 
+
+I then quantized the remaining weights to INT8. 
+
+The results are amazing! 
+
+&amp;#x200B;
+
+https://preview.redd.it/uefy5u1hin7c1.png?width=927&amp;format=png&amp;auto=webp&amp;s=35f9c3a07ab3e7f3a0e22a7528adeafc71c4e8e5
+
+Even after pruning and quantizing the model to 50% I still got stellar zero-shot evaluation results. 
+
+&amp;#x200B;
+
+Try the model:
+
+&amp;#x200B;
+
+https://preview.redd.it/r5tmixshin7c1.png?width=1999&amp;format=png&amp;auto=webp&amp;s=61370090bb0083fecde7b00310bda71527e2eb61
+
+Interestingly, the model is pruned and quantized in one shot. This means that no retraining is done. 
+
+The process works by using a calibration dataset to prune the model in blocks while adjusting the rest of the weights to ensure the model’s accuracy is not affected. 
+
+The algorithm used here is SparseGPT. 
+
+SparseGPT is a post-training pruning method for compressing large language models such as GPT3 and Solar efficiently and accurately. The model can prune LLMs in one shot with minimal loss of accuracy. 
+
+Since LLMs are usually overparameterized, you can remove most of the weights, improving latency and throughput during inference. 
+
+Check out the SOLAR-10.7B-Instruct-v1.0 model that has been pruned in one shot here: 
+
+https://huggingface.co/neuralmagic/SOLAR-10.7B-Instruct-v1.0-pruned50-quant-ds
+
+Learn how to optimize your models in one shot: [https://github.com/neuralmagic/sparseml/tree/main/src/sparseml/transformers/sparsification/obcq](https://github.com/neuralmagic/sparseml/tree/main/src/sparseml/transformers/sparsification/obcq)
+
+Learn more about SparseGPT: https://neuralmagic.com/blog/sparsegpt-remove-100-billion-parameters-for-free/",mwitiderrick,0.59,20,29,Discussion,all_ads,1970-01-20 11:06:05.853
+6,"[D] Deep dive into the MMLU (""Are you smarter than an LLM?"")",/r/MachineLearning/comments/18ntia7/d_deep_dive_into_the_mmlu_are_you_smarter_than_an/,"After all the hubbub around the MMLU (for example [my article](https://derenrich.medium.com/errors-in-the-mmlu-the-deep-learning-benchmark-is-wrong-surprisingly-often-7258bb045859)) I thought I would make an interface for seeing how humans do versus even middle of the pack LLM. It's called [Are You Smarter Than An LLM](https://d.erenrich.net/are-you-smarter-than-an-llm/index.html)?
+
+It presents you random questions from the MMLU and compares your answers to the LLM. Click the ""what is this"" button at the bottom for more details on how it works.
+
+Feedback appreciated!",brokensegue,1.0,3,3,Discussion,all_ads,1970-01-20 11:06:22.888
+7,Opinion on X2Vec Papers[D],/r/MachineLearning/comments/18nnbkq/opinion_on_x2vec_papersd/,What is the opinion on X2Vec Papers.Are the papers well received in the community.How impactful will be a Atom2Vec or Bond2Vec paper ?,One_Definition_8975,0.86,5,9,Discussion,all_ads,1970-01-20 11:06:06.163
+8,[D] Mistral received funding and is worth billions now. Are open source LLMs the future?,/r/MachineLearning/comments/18mv8le/d_mistral_received_funding_and_is_worth_billions/," Came across this intriguing [article](https://gizmodo.com/mistral-artificial-intelligence-gpt-3-openai-1851091217) about Mistral, an open-source LLM that recently scored 400 million in funding, now valued at 2 billion. Are open-source LLMs gonna be the future? Considering the trust issues with ChatGPT and the debates about its safety, the idea of open-source LLMs seems to be the best bet imo.
+
+Unlike closed-source models, users can verify the privacy claims of open-source models. There have been some good things being said about Mistral, and I only hope such open source LLMs secure enough funding to compete with giants like OpenAI. Maybe then, ChatGPT will also be forced to go open source?
+
+With that said, I'm also hopeful that competitors like [Silatus](https://silatus.com/) and [Durable](https://durable.co/), which already use multiple models, consider using open-source models like Mistral into their frameworks. If that happens, maybe there might be a shift in AI privacy. What do you guys think? Are open-source LLMs the future, especially with the funding backing them?",BelowaverageReggie34,0.96,401,141,Discussion,all_ads,1970-01-20 11:04:40.793
+9,What is the optimal approach when training LLMs? [Discussion],/r/MachineLearning/comments/18nodpq/what_is_the_optimal_approach_when_training_llms/,"Hello folks,
+
+suppose you need to setup an LLM for some trivial task, but in different language. For instance, I have a fair classification LLM but I want the classes being generated in a non-english language. Or another case, you have a good specific-domain chat bot, but the inputs and replies must be in another language.
+
+What would be the most rational approach:
+
+1. replicate LLM directly in the target language
+
+or
+
+2) do the job with a well-stablished English LLM and than translate the results into your target language?
+
+How to leverage the power of specific-domains models in different languages without having to redo all the job? Is there something like a transfer learning in a different language? How such problem is being addressed in the industry?
+
+Thanks in advanced",Ok-Leather-7733,1.0,4,1,Discussion,all_ads,1970-01-20 11:06:09.208
+10,[D] How to Use CogVLM in a Python Script?,/r/MachineLearning/comments/18ns81z/d_how_to_use_cogvlm_in_a_python_script/,"Hey everyone,
+
+I'm working on a project where I need to integrate the CogVLM model into a Python script. I've looked into the [CogVLM GitHub page](https://github.com/THUDM/CogVLM), but I'm a bit unclear about the best way to get started with it in a Python environment.
+
+Has anyone here worked with CogVLM before? I'd be very grateful if you could share some insights or resources on:
+
+* Setting up CogVLM for use in a Python script.
+* Making API calls to CogVLM from Python.
+* Any sample code or documentation that could help.
+
+Thanks in advance for your help!  
+
+
+https://preview.redd.it/y07c4gb5no7c1.jpg?width=5874&amp;format=pjpg&amp;auto=webp&amp;s=dafbf42eeaf87f94fd5ff9bd90136464550c9c06",Kakachia777,1.0,2,0,Discussion,all_ads,1970-01-20 11:06:19.553
+11,[R] Experiments fine-tuning Mamba 130m on the SQuAD Question Answering dataset,/r/MachineLearning/comments/18nd76d/r_experiments_finetuning_mamba_130m_on_the_squad/,"Hey all, I wanted to get some hands on practice with Mamba to see how well the smaller models work in practice. I thought question answering would be a nice task to see how much inherent knowledge the model had.
+
+TLDR \~ I trained the 130m Mamba model on SQuAD with a template as follows
+
+\`\`\`
+
+{context}
+
+&amp;#x200B;
+
+Q: {question}
+
+A: {answer}
+
+\`\`\`
+
+I also wanted the model to be able to answer ""I don't know"" if the answer was not contained in the context. So for half of the training data I paired a random question with random context and had the answer be ""I don't know"" to try to help with hallucinations. This seemed to work reasonably well anecdotally kicking the tires, but only had a 12% accuracy on the SQuAD held out set in practice. 
+
+Full experiment details, everything I tried, and the code are linked.
+
+[https://blog.oxen.ai/practical-ml-dive-how-to-train-mamba-for-question-answering/](https://blog.oxen.ai/practical-ml-dive-how-to-train-mamba-for-question-answering/)
+
+I had a hard time training anything over 790m on a Lambda Labs machine with 24GB VRAM, and also had a little success prompt engineering the 2.8b models. I am currently training the 790m model and will release it when it's done.
+
+Has anyone else has success training Mamba on any real world tasks? 
+
+Maybe the larger models would be more promising, I just didn't have enough compute, and think it would be much more economical to be able to run a smaller model in production.
+
+&amp;#x200B;",FallMindless3563,1.0,26,5,Research,all_ads,1970-01-20 11:05:29.277
+12,[P] Emu2: A Gemini-like open-source 37B Multimodal Model,/r/MachineLearning/comments/18ngb9b/p_emu2_a_geminilike_opensource_37b_multimodal/,"I'm excited to introduce Emu2, the latest generative multimodal model developed by the Beijing Academy of Artificial Intelligence (BAAI). Emu2 is an open-source initiative that reflects BAAI's commitment to fostering open, secure, and responsible AI research. It's designed to enhance AI's proficiency in handling tasks across various modalities with minimal examples and straightforward instructions.
+
+Emu2 has demonstrated superior performance over other large-scale models like Flamingo-80B in few-shot multimodal understanding tasks. It serves as a versatile base model for developers, providing a flexible platform for crafting specialized multimodal applications.
+
+Key features of Emu2 include:
+
+\- A more streamlined modeling framework than its predecessor, Emu.
+
+\- A decoder capable of reconstructing images from the encoder's semantic space.
+
+\- An expansion to 37 billion parameters, boosting both capabilities and generalization.
+
+BAAI has also released fine-tuned versions, Emu2-Chat for visual understanding and Emu2-Gen for visual generation, which stand as some of the most powerful open-source models available today.
+
+Here are the resources for those interested in exploring or contributing to Emu2:
+
+\- Project: https://baaivision.github.io/emu2/
+
+\- Model: https://huggingface.co/BAAI/Emu2
+
+\- Code: https://github.com/baaivision/Emu/Emu2
+
+\- Demo: https://huggingface.co/spaces/BAAI/Emu2
+
+\- Paper: https://arxiv.org/abs/2312.13286
+
+We welcome your feedback to help us improve. Let's collaborate to push the boundaries of multimodal AI!",lukai-baai,0.86,10,1,Project,all_ads,1970-01-20 11:05:39.693
+13,[R] Efficient Large Language Models: A Survey,/r/MachineLearning/comments/18nhvcd/r_efficient_large_language_models_a_survey/,"**Paper**: [https://arxiv.org/abs/2312.03863](https://arxiv.org/abs/2312.03863)
+
+**Literature repository**: [https://github.com/AIoT-MLSys-Lab/Efficient-LLMs-Survey](https://github.com/AIoT-MLSys-Lab/Efficient-LLMs-Survey)
+
+**Abstract**:
+
+&gt;Large Language Models (LLMs) have demonstrated remarkable capabilities  in important tasks such as natural language understanding, language  generation, and complex reasoning and have the potential to make a  substantial impact on our society. Such capabilities, however, come with  the considerable resources they demand, highlighting the strong need to  develop effective techniques for addressing their efficiency  challenges. In this survey, we provide a systematic and comprehensive  review of efficient LLMs research. We organize the literature in a  taxonomy consisting of three main categories, covering distinct yet  interconnected efficient LLMs topics from model-centric, data-centric,  and framework-centric perspective, respectively. We have also created a  GitHub repository where we compile the papers featured in this survey at  [this https URL](https://github.com/AIoT-MLSys-Lab/EfficientLLMs), [this https URL](https://github.com/AIoT-MLSys-Lab/Efficient-LLMs-Survey),  and will actively maintain this repository and incorporate new research  as it emerges. We hope our survey can serve as a valuable resource to  help researchers and practitioners gain a systematic understanding of  the research developments in efficient LLMs and inspire them to  contribute to this important and exciting field.",APaperADay,1.0,8,1,Research,all_ads,1970-01-20 11:05:45.712
+14,[D] Are medium-sized LLMs running on-device on consumer hardware a realistic expectation in 2024?,/r/MachineLearning/comments/18n3fre/d_are_mediumsized_llms_running_ondevice_on/,"Currently, most generative processes take place on cloud, as they often require enormous memory and processing power. Smaller, \~8B models can already be ran on most average consumer hardware but offer lower quality results, still with a severely reduced generation speed. Moreover, privacy remains a concern when using services.
+
+Apple recently released a [paper](https://arxiv.org/pdf/2312.11514.pdf) describing a method to run heavy LLMs on devices with limited memory, and the company is still expected to announce their product, following Google's Gemini.
+
+Now, apple has a history of favoring on-device execution and overcoming physical limits, so it is possible to expect that they might set the trend of locally-hosted models and heavy optimization, allowing streamlined generative experience without the need of remote calls.
+
+Combined with steadily growing open-source community, this seems promising to me. I'd like to hear some opinions on this topic, but to me it seems like the current rate of advancement means it is possible that by the end of 2024 it will be possible to reliably run medium-size LLMs on consumer hardware.",NightestOfTheOwls,0.93,61,43,Discussion,all_ads,1970-01-20 11:05:01.730
+15,how do I find my input? [D] [P],/r/MachineLearning/comments/18ns1uy/how_do_i_find_my_input_d_p/,"My X is composed of an x1 and an x2. I want to feed the prediction model a value for x1 and have it return the x2 which will give the smallest value of y. Does this have a name? Can someone point me in the right direction of what to read or help me out?
+
+&amp;#x200B;
+
+Edit: I know I need to do constrained optimization on a neural network model, which I think is called a neural optimization machine.  I don't suppose I can just pass my model from my neural network, using like pickle, to something like scipi.optimize.minimize() as the function to minimize?",GlassWalkerKinfolk,0.33,0,1,Discussion,all_ads,1970-01-20 11:06:19.113
+16,[D] LAION datasets,/r/MachineLearning/comments/18nrnzx/d_laion_datasets/,Does anyone know when the datasets will be re-published without any CSAM?,AromaticCantaloupe19,1.0,1,0,Discussion,all_ads,1970-01-20 11:06:18.087
+17,"Tailored coffee recommendations, powered by data science and machine learning [P]",/r/MachineLearning/comments/18nok4d/tailored_coffee_recommendations_powered_by_data/,"The SPLK (*Sparlek*) Coffee Demo assesses your personality traits to determine the ideal coffee for you! This 2-minute questionnaire would assist us wonderfully to get this demonstration up and running! We are shooting for 1,000 responses to contribute to our database and ultimately feed to our custom-made AI model. If you are a coffee enthusiast and you have 2 minutes to spare, please consider contributing some samples of information! 
+
+  
+**SURVEY:**  
+[https://forms.gle/UrDvf776N6B1R3sE7](https://forms.gle/UrDvf776N6B1R3sE7)",SnooMaps9269,0.4,0,0,Project,all_ads,1970-01-20 11:06:09.692
+18,"[D] Learning Path for Understanding the Construction of ""Stable Diffusion"" AI Model",/r/MachineLearning/comments/18noj0j/d_learning_path_for_understanding_the/,"I've recently started my journey into deep learning by taking courses on CNNs and RNNs. I'm particularly interested in understanding how the ""Stable Diffusion"" AI model was built and its inner workings.
+
+Considering my current knowledge, could you provide me with a roadmap or suggest resources to deepen my understanding? What topics should I delve into next to bridge the gap and comprehend the intricacies of stable diffusion-based models?
+
+Any advice, recommended courses, or learning paths would be greatly appreciated! Thank you in advance for your insights. I am currently a cs undergrad, hoping to pursue my MS in CS. I would appreciate any advice you could spare as well. ",Ok_Science_867,0.4,0,5,Discussion,all_ads,1970-01-20 11:06:09.614
+19,[R] The Efficiency Spectrum of Large Language Models: An Algorithmic Survey,/r/MachineLearning/comments/18nhz3v/r_the_efficiency_spectrum_of_large_language/,"**Paper**: [https://arxiv.org/abs/2312.00678](https://arxiv.org/abs/2312.00678)
+
+**Literature repository**: [https://github.com/tding1/Efficient-LLM-Survey](https://github.com/tding1/Efficient-LLM-Survey)
+
+**Abstract**:
+
+&gt;The rapid growth of Large Language Models (LLMs) has been a driving  force in transforming various domains, reshaping the artificial general  intelligence landscape. However, the increasing computational and memory  demands of these models present substantial challenges, hindering both  academic research and practical applications. To address these issues, a  wide array of methods, including both algorithmic and hardware  solutions, have been developed to enhance the efficiency of LLMs. This  survey delivers a comprehensive review of algorithmic advancements aimed  at improving LLM efficiency. Unlike other surveys that typically focus  on specific areas such as training or model compression, this paper  examines the multi-faceted dimensions of efficiency essential for the  end-to-end algorithmic development of LLMs. Specifically, it covers  various topics related to efficiency, including scaling laws, data  utilization, architectural innovations, training and tuning strategies,  and inference techniques. This paper aims to serve as a valuable  resource for researchers and practitioners, laying the groundwork for  future innovations in this critical research area. Our repository of  relevant references is maintained at url{[this https URL](https://github.com/tding1/Efficient-LLM-Survey)}.",APaperADay,0.8,3,0,Research,all_ads,1970-01-20 11:05:46.156
+20,[P] Scaling Challenges with Dashboard Plotly vs Tableau vs bunjs for High-Volume Data and User Interaction,/r/MachineLearning/comments/18nnpj4/p_scaling_challenges_with_dashboard_plotly_vs/,"I'm currently developing a Dash application that incorporates a variety of graphs including line graphs, pie plots, treemaps, tables, spider plots, and Gantt charts. This application allows user-based modifications and responds dynamically to user interactions with the graphs and tables. Also certain modification is three. If a user select a data point on the graph, user see the detailed information about the data point below the graph. Similarly with the table an pi plot. Also A key aspect of our app is its integration with a trained machine learning model to display data. However, we're working with a considerably large dataset, ranging from 1-10 million rows and 400-1000 columns of text data (Json,csv). Given this scale, a critical question arises:
+
+&amp;#x200B;
+
+Can Dash Plotly efficiently scale to accommodate 100 to 1000 users simultaneously? In our current test phase, we've encountered an issue with the initial loading time of the app, which is approximately 15 seconds on both Google Cloud Platform and AWS. We've implemented some optimizations, such as using lru\_cache, flask\_compress , and setting prevent\_initial\_call=True in callbacks. These tweaks have offered some improvements, but not significantly. Our trial with Gunicorn (configured with 8 workers and 4 threads) interestingly resulted in slower performance, contrary to expectations. We haven't yet explored asynchronous routes, and I'm curious if this could be a potential solution. This brings me to another consideration: the necessity of Dash Enterprise. Based on my research from sources like Data Revenue and Dash Plotly's own documentation, Dash Enterprise offers additional features like job queues, which are not included in the standard version.
+
+&amp;#x200B;
+
+Would Dash Enterprise be a more suitable solution for our requirements? I am keen to hear from anyone who has experience scaling Dashboard applications, especially those dealing with large datasets and heavy user interaction. Any insights or suggestions would be greatly appreciated.
+
+&amp;#x200B;
+
+Given the context, we are also evaluating; elixir phoenix, bunjs
+
+&amp;#x200B;
+
+Appreciate it.",Alertt_53,0.67,1,0,Project,all_ads,1970-01-20 11:06:07.291
+21,Why Le Cam equation is not popular but very useful ? [R],/r/MachineLearning/comments/18n9rin/why_le_cam_equation_is_not_popular_but_very/,"I recently got interested in Le Cam equation which informally is useful to find the relevant metric in the hypothesis class/ collection of densities in order to find (sub)linear rate of convergence for the minimax estimation of error.   
+I will leave some references and I’m interested to know more about a geometrical interpretation to understand the intuition behind it. I’m interested in work where this approach was used, particularly in bandits, I would also be grateful if you can recommend books/lectures to understand it.  
+\[1\] \[Shamindra et Al. Revisiting Le Cam’s Equation: Exact Minimax Rates over Convex Density Classes\](https://arxiv.org/pdf/2210.11436.pdf)  
+\[2\] \[Bilodeau et Al Minimax Rates for Conditional Density Estimation via Empirical Entropy\](https://arxiv.org/abs/2109.10461)  
+\[3\] \[Alxander Rakhlin et Al. Empirical entropy, minimax regret and minimax risk\](https://arxiv.org/pdf/1308.1147.pdf)",Any-Ad-3888,0.82,11,3,Research,all_ads,1970-01-20 11:05:18.633
+22,Does anyone here work with SELFIES in deep learning in Chemistry [D]?,/r/MachineLearning/comments/18nmn5r/does_anyone_here_work_with_selfies_in_deep/,Are SELFIES right now the sota?Any helpful resources?,One_Definition_8975,0.5,0,0,Discussion,all_ads,1970-01-20 11:06:04.090
+23,[D] PyTorch Cloud IDE - need clarification,/r/MachineLearning/comments/18nlwuc/d_pytorch_cloud_ide_need_clarification/,"So I’m currently using colab pro+ which I have been happy with for the notebooks and the powerful GPUs. I only have a m1 MacBook Air and for the most part do off and on side projects. I’ve been looking for a more “complete” cloud environment where I can have access to a true IDE (like vs code) to write python code or work in a notebook, have full   Git control, and GPU backed.
+
+When looking around at colabs, paperspace, vast etc they all still seem to be notebook based. My questions is GCP w/ a gpu and a VM a good option or other options out there? Co lab pro+ is $50/month and if I only average a couple days a month on demand pricing of cloud may be reasonable.",SuperbMonk4403,0.5,0,1,Discussion,all_ads,1970-01-20 11:06:01.693
+24,[D] What's the Current State-of-the-Art Model for Predicting Big Five Personality Traits from Text?,/r/MachineLearning/comments/18no7gk/d_whats_the_current_stateoftheart_model_for/,"Hi everyone,
+
+I'm curious about the latest advancements in natural language processing (NLP) and machine learning, especially in the context of personality analysis. Specifically, I'm interested in models that can predict the Big Five personality traits (Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism) from text data.
+
+As of my last reading, models like BERT and its variants were showing promise in this area. These transformer-based models, known for their deep learning capabilities, seemed to be at the forefront of such applications.
+
+However, I'm aware that the field of AI and NLP is rapidly evolving, and new techniques and models are constantly emerging. So, I'm reaching out to this community to ask:
+
+1. What are the current state-of-the-art models for predicting the Big Five personality traits from text?
+2. Are there any recent breakthroughs or significant advancements in this specific application of NLP?
+3. If anyone here has experience in this field, could you share insights or resources where I can learn more about the latest developments?
+
+Any academic references, research papers, or personal insights would be greatly appreciated. I'm keen to stay updated with the latest in this fascinating intersection of AI and psychology.
+
+Thanks in advance!",yachty66,0.33,0,2,Discussion,all_ads,1970-01-20 11:06:08.719
+25,[D]Multiple Labels Classification using LLM,/r/MachineLearning/comments/18nk3wa/dmultiple_labels_classification_using_llm/,"Multiple Label Classification using LLM
+
+Hi everyone
+
+I'm not really well-versed in ML so I want to ask a few question on fine-tuning LLM if that's ok. I'm looking to fine tune some 7B models like llama or mistral 7B.
+
+My use case is in essay evaluations where there are multiple labels (10 out of a total of 100 possible labels) assigned to an essay to produce a score. 
+
+These labels I think can be categorized into 4 main type (Vocabulary,.....) which decreases the complexity of each API calls.
+
+My question is, is it possible to fine tune an LLM to perform such a complex task, given I will eventually gather enough data ~10K entries?
+
+And is this process any different from regular promt-to-response fine tuning llm?",Quirky_Musician6861,0.67,1,1,Discussion,all_ads,1970-01-20 11:05:55.001
+26,[R] How to test hypotheses about optimal softmax temperature for Transformer model,/r/MachineLearning/comments/18nghx0/r_how_to_test_hypotheses_about_optimal_softmax/,"I'm trying to get a better intuition and test a few hypotheses about the effect of softmax temperature on Transformer models, and the optimal choice of temperature based on various dataset settings (eg data augmentations, class imbalance). I want my dataset and model to be large enough such that the lessons learned will hopefully generalize somewhat to larger scenarios. On the other hand, I want to be able try a number of settings so I don't want training to take too long. I also only have a system with 2x RTX 3080s. What's a good dataset and model size to run these experiments? Also, presumably to make this realistic I need to pretrain from scratch, right? I'm thinking maybe a ViT model with 4 heads and 128 hidden dimensions for CIFAR-10 -- does this make sense?",halvin_n_cobbes,0.75,2,0,Research,all_ads,1970-01-20 11:05:40.337
