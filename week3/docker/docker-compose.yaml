@@ -1,4 +1,4 @@
-services:
+docservices:
   db: #Name of container
     image: postgres:latest #Image to load into contain, will look on internet for this 
     environment:
